@@ -13,3 +13,7 @@ ctk.set_default_color_theme("blue")
 app = ctk.cTk()
 app.geometry("500x500")
 app.title("Expense Statement Generator")
+
+# Global frame setup for dynamic content display
+main_frame = ctk.CTkFrame(app)
+main_frame.pack(pady=20, padx=40, fill='both', expand= true)
