@@ -17,3 +17,7 @@ app.title("Expense Statement Generator")
 # Global frame setup for dynamic content display
 main_frame = ctk.CTkFrame(app)
 main_frame.pack(pady=20, padx=40, fill='both', expand= true)
+
+def clear_main_frame():
+    for widget in main_frame.winfo_children():
+        widget.destroy()
