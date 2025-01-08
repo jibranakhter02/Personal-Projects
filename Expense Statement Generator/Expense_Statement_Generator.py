@@ -6,6 +6,18 @@ import sqlite3
 conn = sqlite3.connect("user_accounts.db")
 cursor = conn.cursor()
 
+# Create user table
+cursor.execute("""
+CREATE TABLE IF NOT EXISTS users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    username TEXT UNIQUE NOT NULL,
+    password TEXT NOT NULL,
+    opening_balance REAL DEFAULT NULL,
+    expenses TEXT DEFAULT '{}'
+)
+""")
+conn.commit()
+
 # GUI setup
 ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("blue")
