@@ -1,5 +1,10 @@
 import customtkinter as ctk
 import tkinter.messagebox as tkmb
+import sqlite3
+
+# Setting up a database for user accounts
+conn = sqlite3.connect("user_accounts.db")
+cursor = conn.cursor()
 
 # GUI setup
 ctk.set_appearance_mode("dark")
