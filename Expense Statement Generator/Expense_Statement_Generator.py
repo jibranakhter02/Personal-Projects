@@ -67,4 +67,16 @@ def show_login():
 
     ctk.CTkButton(main_frame, text="Sign Up", command=show_signup).pack(pady=5)
 
-    
+def show_signup():
+    clear_main_frame()
+
+    ctk.CTkLabel(main_frame, text="Create a New Account", font=("Arial", 20)).pack(pady=20)
+
+    new_user_entry = ctk.CTkEntry(main_frame, placeholder_text="New Username")
+    new_user_entry.pack(pady=12, padx=10)
+
+    new_user_pass = ctk.CTkEntry(main_frame, placeholder_text="New Password", show="*")
+    new_user_pass.pack(pady=12, padx=10)
+
+    confirm_pass = ctk.CTkEntry(main_frame, placeholder_text="Confirm Password", show="*")
+    confirm_pass.pack(pady=12, padx=10)
