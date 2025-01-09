@@ -33,6 +33,7 @@ main_frame.pack(pady=20, padx=40, fill='both', expand= true)
 def clear_main_frame():
     for widget in main_frame.winfo_children():
         widget.destroy()
+
 def show_login():
     clear_main_frame()
 
@@ -65,3 +66,5 @@ def show_login():
     ctk.CTkLabel(main_frame, text="Don't have an account?", font=("Arial", 12)).pack(pady=5)
 
     ctk.CTkButton(main_frame, text="Sign Up", command=show_signup).pack(pady=5)
+
+    
