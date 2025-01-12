@@ -80,3 +80,27 @@ def show_signup():
 
     confirm_pass = ctk.CTkEntry(main_frame, placeholder_text="Confirm Password", show="*")
     confirm_pass.pack(pady=12, padx=10)
+
+    def register_user():
+        new_username = new_user_entry.get()
+        new_password = new_user_pass.get()
+        confirm_password = confirm_pass.get()
+
+        if not new_username or not new_password or not confirm_password:
+            tkmb.showwarning(title="Missing Information", message="Please fill out all fields.")
+        elif new_password != confirm_password:
+            tkmb.showerror(title="Password Mismatch", message="Passwords do not match.")
+        else:
+            try:
+                cursor.execute("INSERT INTO users (username, password) VALUES (?, ?)", (new_username, new_password))
+                conn.commit()
+                tkmb.showinfo(title="Registration Successful", message="Account created successfully!")
+                show_login()
+            except sqlite3.IntegrityError:
+                tkmb.showerror(title="Registration Failed", message="Username already exists. Please choose a different one.")
+
+    ctk.CTkButton(main_frame, text="Register", command=register_user).pack(pady=20, padx=10)
+
+    ctk.CTkButton(main_frame, text="Back to Login", command=show_login).pack(pady=5)
+
+    
